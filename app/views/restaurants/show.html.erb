@@ -1,0 +1,28 @@
+<p>
+  <b>Restaurant phone:</b>
+  <%=h @restaurant.restaurant_phone %>
+</p>
+
+<p>
+  <b>Restaurant name:</b>
+  <%=h @restaurant.restaurant_name %>
+</p>
+
+<p>
+  <b>Time zone:</b>
+  <%=h @restaurant.time_zone %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%=h @restaurant.username %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%=h @restaurant.password %>
+</p>
+
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', restaurants_path %>

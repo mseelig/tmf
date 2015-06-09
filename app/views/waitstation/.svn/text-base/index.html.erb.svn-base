@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Text My Food - Message Center</title>
+
+		<!--[if lte IE 8]>
+			<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<style type="text/css">
+		/* <![CDATA[ */
+			@import "stylesheets/styles.css";
+			html{width:100%;height:100%;overflow:auto;}
+		/* ]]> */
+		</style>
+                <script type="text/javascript" src="javascripts/tmf_utils.js"></script>
+                <script type="text/javascript" src="javascripts/pxToEm.js"></script>
+                <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+                <script type="text/javascript" src="javascripts/jquery-ui.min.js"></script>
+                <script type="text/javascript" src="javascripts/UICallbacks.js"></script>
+                <script type="text/javascript" src="javascripts/messages.js"></script>	
+                <link rel="shortcut icon" href="favicon.ico" />
+	</head>
+	<body id="messages">
+        <section id="main">
+                <center><%= @restaurant_name_or_image %></center>
+                <center id="client_name"><i><%= @client_name %></i></center>
+		<!--	<a href="#" id="quit">Quit</a> -->
+			<nav id="main-nav">
+				<ul>
+					<li><a onclick="UICallbacks.system_menu_to_message_center();">Message Center</a></li>
+					<!--<li><a href="#">Message Log</a></li>-->
+					<li><a onclick="UICallbacks.system_menu_to_recent_messages();">Recent Messages</a></li>
+					<!--<li><a href="#">Preferences</a></li>-->
+					<!--<li><a href="messages.html">Training</a></li>-->
+					<li><a onclick="UICallbacks.system_menu_to_blocked_phones();">Blocked Phones</a></li>
+                    <li><a href="#">Send Promo</a></li>
+				</ul>
+			</nav>
+            <footer id="main_footer">
+                <span id="page_name">System Menu</span>
+                <table id="support"><tr><td>Guests send their requests to <%= @restaurant_phone %></td></tr>
+                                    <tr><td>For support, call TextMyFood at 617 444 9998</td></tr></table>
+                <img id="tmf_logo" src="images/logo.png"/>
+            </footer>
+		</section>
+		
+		<section id="message_center">
+            <header>
+                <ul>
+                    <li class="close">Close</li>
+                    <li class="table"><%= @table_label %></li>
+                    <li class="message">Message</li>
+                    <li class="phone">Phone</li>
+                    <li class="response">Reply</li>
+                    <li class="other-response">Other Replies</li>
+                </ul>
+                <br style="clear:both;"/>
+            </header> 
+			<ul id="message_center_content">
+				
+			</ul>
+            
+            <footer id="message_center_footer">
+                <span id="page_name">Message Center</span>
+                <a id="footer_center_button" onclick="UICallbacks.message_center_to_system_menu();">System Menu</a>
+		        <img id="tmf_logo" src="images/logo.png"/>
+            </footer>
+            <div class="sent" onclick="UICallbacks.otherResponses();">SENT</div>
+		</section>
+		<section id="new_message_alert">
+		  <div><center>New Request <br /> Tap to Stop Flashing</center></div>
+		</section>
+		<section id="other_replies">
+                  <%= @other_replies_html %>
+            <footer id="other_replies_footer">
+                <span id="page_name">Send Reply</span>
+                <a id="footer_center_button" onclick="UICallbacks.other_replies_to_message_center();">Message Center</a>
+            </footer>
+		</section>	
+        <section id="blocked_phones">
+			<table cellspacing=20>
+                <tbody id="blocked_phones_tbody"></tbody>
+            </table>
+            <footer id="blocked_phones_footer">
+                <span id="page_name">Blocked Phones</span>
+                <a id="footer_center_button" onclick="UICallbacks.blocked_phones_to_message_center();">Message Center</a>
+            </footer>
+		</section>
+        <section id="messages_from_table">
+            <center id="messages_from_table_head">Messages from table <span id="messages_from_table_table">a table</span></center>
+			<table>
+                <tbody id="messages_from_table_tbody"></tbody>
+            </table>
+            <footer id="messages_from_table_footer">
+                <span id="page_name">Messages From Table</span>
+                <a id="footer_center_button" onclick="UICallbacks.messages_from_table_to_message_center();">Message Center</a>
+            </footer>
+		</section>
+        <section id="messages_from_phone">
+            <center id="messages_from_phone_head">Messages from <span id="messages_from_phone_phone">a phone</span></center>
+			<table>
+                <tbody id="messages_from_phone_tbody"></tbody>
+            </table>
+            <footer id="messages_from_phone_footer">
+                <span id="page_name">Messages From Phone</span>
+                <a id="footer_center_button" onclick="UICallbacks.messages_from_phone_to_message_center();">Message Center</a>
+            </footer>
+		</section>
+        <section id="recent_messages">
+			<table>
+                <tbody id="recent_messages_tbody"></tbody>
+            </table>
+            <footer id="blocked_phones_footer">
+                <span id="page_name">Recent Messages</span>
+                <a id="footer_center_button" onclick="UICallbacks.recent_messages_to_message_center();">Message Center</a>
+            </footer>
+		</section>
+        <section id="network_down">
+            <div> Network Down </div>
+        </section>
+	</body>
+</html>

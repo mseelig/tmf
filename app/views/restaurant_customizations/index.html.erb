@@ -1,0 +1,76 @@
+<h1>Listing restaurant_customizations</h1>
+
+<table>
+  <tr>
+    <th>Restaurant Phone</th>
+    <th>Close label</th>
+    <th>Table label</th>
+    <th>Message label</th>
+    <th>Phone label</th>
+    <th>Reply label</th>
+    <th>Other replies label</th>
+    <th>Other replies html</th>
+    <th>Time label</th>
+    <th>Status label</th>
+    <th>Unblock label</th>
+    <th>Time-blocked label</th>
+    <th>How-blocked label</th>
+    <th>Message center label</th>
+    <th>System menu label</th>
+    <th>Recent messages label</th>
+    <th>Blocked phones label</th>
+    <th>Send promo label</th>
+    <th>Send reply label</th>
+    <th>System menu text1</th>
+    <th>System menu text2</th>
+    <th>Be there label</th>
+    <th>Other label</th>
+    <th>Days label</th>
+    <th>Day label</th>
+    <th>Hours label</th>
+    <th>Hour label</th>
+    <th>Min label</th>
+    <th>Network down label</th>
+  </tr>
+
+<% @restaurant_customizations.each do |restaurant_customization| %>
+  <tr>
+    <td><%=h restaurant_customization.restaurant_phone %></td>
+    <td><%=h restaurant_customization.close_label %></td>
+    <td><%=h restaurant_customization.table_label %></td>
+    <td><%=h restaurant_customization.message_label %></td>
+    <td><%=h restaurant_customization.phone_label %></td>
+    <td><%=h restaurant_customization.reply_label %></td>
+    <td><%=h restaurant_customization.other_replies_label %></td>
+    <td><%= if (restaurant_customization.other_replies_html != '') then "hidden" end%></td>
+    <td><%=h restaurant_customization.time_label %></td>
+    <td><%=h restaurant_customization.status_label %></td>
+    <td><%=h restaurant_customization.unblock_label %></td>
+    <td><%=h restaurant_customization.time_blocked_label %></td>
+    <td><%=h restaurant_customization.how_blocked_label %></td>
+    <td><%=h restaurant_customization.message_center_label %></td>
+    <td><%=h restaurant_customization.system_menu_label %></td>
+    <td><%=h restaurant_customization.recent_messages_label %></td>
+    <td><%=h restaurant_customization.blocked_phones_label %></td>
+    <td><%=h restaurant_customization.send_promo_label %></td>
+    <td><%=h restaurant_customization.send_reply_label %></td>
+    <td><%=h restaurant_customization.system_menu_text1 %></td>
+    <td><%=h restaurant_customization.system_menu_text2 %></td>
+    <td><%=h restaurant_customization.be_there_label %></td>
+    <td><%=h restaurant_customization.other_label %></td>
+    <td><%=h restaurant_customization.days_label %></td>
+    <td><%=h restaurant_customization.day_label %></td>
+    <td><%=h restaurant_customization.hours_label %></td>
+    <td><%=h restaurant_customization.hour_label %></td>
+    <td><%=h restaurant_customization.min_label %></td>
+    <td><%=h restaurant_customization.network_down_label %></td>
+    <td><%= link_to 'Show', restaurant_customization %></td>
+    <td><%= link_to 'Edit', edit_restaurant_customization_path(restaurant_customization) %></td>
+    <td><%= link_to 'Destroy', restaurant_customization, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New restaurant_customization', new_restaurant_customization_path %>

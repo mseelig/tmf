@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  session_id: MyString
+  restaurant_code: MyString
+  status: MyString
+  last_polled: 2010-12-31 16:10:55
+
+two:
+  session_id: MyString
+  restaurant_code: MyString
+  status: MyString
+  last_polled: 2010-12-31 16:10:55

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  restaurant_code: MyString
+  status: MyString
+  age: 1
+  table_code: 1
+  text: MyString
+  guest_phone: MyString
+
+two:
+  restaurant_code: MyString
+  status: MyString
+  age: 1
+  table_code: 1
+  text: MyString
+  guest_phone: MyString

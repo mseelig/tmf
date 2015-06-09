@@ -1,0 +1,26 @@
+<h1>Listing tablemaps</h1>
+
+<table>
+  <tr>
+    <th>Restaurant phone</th>
+    <th>Table code</th>
+    <th>Restaurant code</th>
+    <th>Seats</th>
+  </tr>
+
+<% @tablemaps.each do |tablemap| %>
+  <tr>
+    <td><%=h tablemap.restaurant_phone %></td>
+    <td><%=h tablemap.table_code %></td>
+    <td><%=h tablemap.restaurant_code %></td>
+    <td><%=h tablemap.seats %></td>
+    <td><%= link_to 'Show', tablemap %></td>
+    <td><%= link_to 'Edit', edit_tablemap_path(tablemap) %></td>
+    <td><%= link_to 'Destroy', tablemap, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tablemap', new_tablemap_path %>

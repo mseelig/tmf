@@ -1,0 +1,112 @@
+
+<table width="100%">
+  <tr>
+    <td style="font-size:16px">TMF Console</td>
+    <th style="font-size:18px"><%= @current_user.restaurant_name %></th>
+    <td style="font-size:18px"><%= @current_user.restaurant_phone %></td>
+    <td style="font-size:16px" align=right>
+      <%= ConsoleHelper.local_time_string(Time.now, @current_user.time_zone) %>
+    </td>
+  </tr>
+</table>
+
+<!-- <hr> -->
+<!-- <% params.each do |c| %> -->
+<!-- <%= c[0] %>: <%= params[c[0]] %><br> -->
+<!-- <% end %> -->
+
+<fieldset>
+  <legend><b>WaitStation Status</b></legend>
+  <% if @clients.blank? %>
+  <p>There are no clients of the system.</p>
+  <% else %>
+  <table id="clients">
+    <tr>
+      <th>name</th>
+      <td rowspan=999 width="1%"></td>
+      <th>code</th>
+      <td rowspan=999 width="1%"></td>
+      <th>status</th>
+      <td rowspan=999 width="1%"></td>
+      <th>time_since_last_poll</th>
+      <td rowspan=999 width="1%"></td>
+      <th>created</th>
+    </tr>
+    <% @clients.each do |c| %>
+    <tr>
+      <td><%= c.client_name %></td>
+      <td><%= c.client_code %></td>
+      <td><%= CnslHelper.html_colorize_status(c.status) %></td>
+      <td><%= CnslHelper.time_in_words_to_now(c.last_polled) ||
+	      distance_of_time_in_words_to_now(c.last_polled) %></td>
+      <th><%= c.created_at %></th>
+    </tr>
+    <% end %>
+  </table>
+  <% end %>
+  <!-- <p><%= link_to "Add new Client", {:action => 'new' }%></p> -->
+</fieldset>
+<form action="/console/sendmsg" method="post">
+  <fieldset>
+    <legend><b>Send Text</b></legend>
+    <table>
+      <tr><td>From Facility Phone:
+	  <%= @current_user.restaurant_phone %>
+	  <input name="restaurant_phone"
+		 type=hidden
+		 value=<%= @current_user.restaurant_phone %>></td>
+	<td width="5%"></td>
+	<td>To Guest Phone:
+	  <input name="guest_phone" size="13" type="text"></td></tr>
+    </table>
+    <table>
+      <tr><td>Message:</td>
+	<td rowspan=2>
+	  <textarea name="text_message" cols="70" rows="2"></textarea></td></tr>
+      <tr><td><input name="commit" type="submit" value="Send"></td></tr>
+    </table>
+  </fieldset>
+</form>
+
+<% if @messages.blank? %>
+<p>There are not any messages currently in the system.</p>
+<% else %>
+<table id="messages" cellpadding=2>
+  <tr>
+    <th align=left colspan=1>Messages</th>
+    <td nowrap align=center colspan=4><%= will_paginate @messages %></td>
+    <td width="1%" rowspan=999></td>
+    <td nowrap><%= ConsoleHelper.local_iso_time_string(Time.now, @current_user.time_zone) %></td>
+  </tr>
+  <tr>
+    <th><%= link_to "guest_phone",
+	    ConsoleHelper.change_to('guest_phone', @msortby, @msortord) %></th>
+    <th><%= link_to "tbl",
+	    ConsoleHelper.change_to('table_code', @msortby, @msortord) %></th>
+    <th><%= link_to "status",
+	    ConsoleHelper.change_to('status', @msortby, @msortord) %></th>
+    <th><%= link_to "text",
+	    ConsoleHelper.change_to('text', @msortby, @msortord) %></th>
+    <th><%= link_to "created",
+	    ConsoleHelper.change_to('created_at', @msortby, @msortord) %></th>
+    <th><%= link_to "updated",
+	    ConsoleHelper.change_to('updated_at', @msortby, @msortord) %></th>
+  </tr>
+  <% @messages.each do |c| %>
+  <tr valign=top>
+    <td nowrap><%= c.guest_phone %></td>
+    <td nowrap><%= c.table_code %></td>
+    <td nowrap><%= c.status %></td>
+    <td><%= c.text %></td>
+    <td nowrap><%= ConsoleHelper.local_iso_time_string(c.created_at, @current_user.time_zone) %></td>
+    <td nowrap><%= ConsoleHelper.local_iso_time_string(c.updated_at, @current_user.time_zone) %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <th align=left colspan=1>Messages</th>
+    <td nowrap align=center colspan=4><%= will_paginate @messages %></td>
+    <td nowrap><%= ConsoleHelper.local_iso_time_string(Time.now, @current_user.time_zone) %></td>
+  </tr>
+</table>
+<% end %>
+<!-- <p><%= link_to "Add new Message", {:action => 'new' }%></p> -->

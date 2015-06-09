@@ -1,0 +1,148 @@
+<p>
+  <b>Restaurant Phone:</b>
+  <%=h @restaurant_customization.restaurant_phone %>
+</p>
+
+<p>
+  <b>Close label:</b>
+  <%=h @restaurant_customization.close_label %>
+</p>
+
+<p>
+  <b>Table label:</b>
+  <%=h @restaurant_customization.table_label %>
+</p>
+
+<p>
+  <b>Message label:</b>
+  <%=h @restaurant_customization.message_label %>
+</p>
+
+<p>
+  <b>Phone label:</b>
+  <%=h @restaurant_customization.phone_label %>
+</p>
+
+<p>
+  <b>Reply label:</b>
+  <%=h @restaurant_customization.reply_label %>
+</p>
+
+<p>
+  <b>Other replies label:</b>
+  <%=h @restaurant_customization.other_replies_label %>
+</p>
+
+<p>
+  <b>Other replies html:</b>
+  <%=h @restaurant_customization.other_replies_html %>
+</p>
+
+<p>
+  <b>Time label:</b>
+  <%=h @restaurant_customization.time_label %>
+</p>
+
+<p>
+  <b>Status label:</b>
+  <%=h @restaurant_customization.status_label %>
+</p>
+
+<p>
+  <b>Unblock label:</b>
+  <%=h @restaurant_customization.unblock_label %>
+</p>
+
+<p>
+  <b>Time-blocked label:</b>
+  <%=h @restaurant_customization.time_blocked_label %>
+</p>
+
+<p>
+  <b>How-blocked label:</b>
+  <%=h @restaurant_customization.how_blocked_label %>
+</p>
+
+<p>
+  <b>Message center label:</b>
+  <%=h @restaurant_customization.message_center_label %>
+</p>
+
+<p>
+  <b>System menu label:</b>
+  <%=h @restaurant_customization.system_menu_label %>
+</p>
+
+<p>
+  <b>Recent messages label:</b>
+  <%=h @restaurant_customization.recent_messages_label %>
+</p>
+
+<p>
+  <b>Blocked phones label:</b>
+  <%=h @restaurant_customization.blocked_phones_label %>
+</p>
+
+<p>
+  <b>Send promo label:</b>
+  <%=h @restaurant_customization.send_promo_label %>
+</p>
+
+<p>
+  <b>Send reply label:</b>
+  <%=h @restaurant_customization.send_reply_label %>
+</p>
+
+<p>
+  <b>System menu text1:</b>
+  <%=h @restaurant_customization.system_menu_text1 %>
+</p>
+
+<p>
+  <b>System menu text2:</b>
+  <%=h @restaurant_customization.system_menu_text2 %>
+</p>
+
+<p>
+  <b>Be there label:</b>
+  <%=h @restaurant_customization.be_there_label %>
+</p>
+
+<p>
+  <b>Other label:</b>
+  <%=h @restaurant_customization.other_label %>
+</p>
+
+<p>
+  <b>Days label:</b>
+  <%=h @restaurant_customization.days_label %>
+</p>
+
+<p>
+  <b>Day label:</b>
+  <%=h @restaurant_customization.day_label %>
+</p>
+
+<p>
+  <b>Hours label:</b>
+  <%=h @restaurant_customization.hours_label %>
+</p>
+
+<p>
+  <b>Hour label:</b>
+  <%=h @restaurant_customization.hour_label %>
+</p>
+
+<p>
+  <b>Min label:</b>
+  <%=h @restaurant_customization.min_label %>
+</p>
+
+<p>
+  <b>Network down label:</b>
+  <%=h @restaurant_customization.network_down_label %>
+</p>
+
+
+<%= link_to 'Edit', edit_restaurant_customization_path(@restaurant_customization) %> |
+<%= link_to 'Back', restaurant_customizations_path %>

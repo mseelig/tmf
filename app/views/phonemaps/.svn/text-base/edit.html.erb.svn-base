@@ -1,0 +1,20 @@
+<h1>Editing phonemap</h1>
+
+<% form_for(@phonemap) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :guest_phone %><br />
+    <%= f.text_field :guest_phone %>
+  </p>
+  <p>
+    <%= f.label :restaurant_code %><br />
+    <%= f.text_field :restaurant_code %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @phonemap %> |
+<%= link_to 'Back', phonemaps_path %>

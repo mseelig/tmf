@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Text My Food - Message Center</title>
+
+		<!--[if lte IE 8]>
+			<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<style type="text/css">
+		/* <![CDATA[ */
+			@import "stylesheets/styles.css";
+			html{width:100%;height:100%;overflow:auto;}
+		/* ]]> */
+		</style>
+                <script type="text/javascript" src="javascripts/tmf_utils.js"></script>
+		<script type="text/javascript" src="javascripts/pxToEm.js"></script>
+		<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+		<script type="text/javascript" src="javascripts/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="javascripts/UICallbacks.js"></script>
+		<script type="text/javascript" src="javascripts/messages.js"></script>	
+		<link rel="shortcut icon" href="favicon.ico" />
+	</head>
+	<body id="messages">
+        <section id="main">
+			<a href="#" id="quit">Quit</a>
+			<nav id="main-nav">
+				<ul>
+					<li><a onclick="UICallbacks.system_menu_to_message_center();">Message Center</a></li>
+					<!--<li><a href="#">Message Log</a></li>-->
+					<li><a onclick="UICallbacks.system_menu_to_recent_messages();">Recent Messages</a></li>
+					<!--<li><a href="#">Preferences</a></li>-->
+					<!--<li><a href="messages.html">Training</a></li>-->
+					<li><a onclick="UICallbacks.system_menu_to_blocked_phones();">Blocked Phones</a></li>
+                    <li><a href="#">Send Promo</a></li>
+				</ul>
+			</nav>
+            <footer id="main_footer">
+                <span id="page_name">System Menu</span>
+                <div id="support">For support, call TextMyFood at 617-444-9998</div>
+                <img id="tmf_logo" src="images/logo.png"/>
+            </footer>
+		</section>
+		
+		<section id="message_center">
+			<ul>
+				<li>
+					<ul>
+						<li class="close">Close</li>
+						<li class="table">Table</li>
+						<li class="message">Message</li>
+                        <li class="phone">Phone</li>
+                        <li class="response">Reply</li>
+                        <li class="other-response">Other Replies</li>
+					</ul>
+				</li>
+			</ul>
+            <footer id="message_center_footer">
+                <span id="page_name">Message Center</span>
+                <a id="footer_center_button" onclick="UICallbacks.message_center_to_system_menu();">System Menu</a>
+		        <img id="tmf_logo" src="images/logo.png"/>
+            </footer>
+            <div class="sent">SENT</div>
+		</section>
+		<section id="new_message_alert">
+		  <div><center>New Request <br /> Tap to Stop Flashing</center></div>
+		</section>
+		<section id="other_replies">
+			<div id="other_replies_content">
+				<!-- <button id="close_other_replies">Close</button> -->
+				<ul>
+					<li>
+						<ul>
+							<li>
+								<ul>
+									<li class="send_other_reply_button">be there</li>
+									<li class="send_other_reply_text">We received your request for "the msg" and we'll be right with you.<li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li class="send_other_reply_button">sorry</li>
+									<li class="send_other_reply_text">Sorry about that, I will be right there.<li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li class="send_other_reply_button">restaurant related</li>
+									<li class="send_other_reply_text">Sorry, this is only for restaurant related requests.<li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li class="send_other_reply_button"><span >warn</span></li>
+									<li class="send_other_reply_text">That message was inappropriate. If it happens again, you will no longer be able to text us.<li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li class="send_other_reply_button">block</li>
+									<li class="send_other_reply_text">You have been blocked and can no longer text us. Please see the manager if you have any questions.<li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul>
+							<li>
+								<ul>
+									<li class="send_other_reply_button">thank you</li>
+									<li class="send_other_reply_text">Thank you.<li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li class="send_other_reply_button">welcome</li>
+									<li class="send_other_reply_text">You're welcome!<li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li class="send_other_reply_button">10 minutes</li>
+									<li class="send_other_reply_text">We have received your request for "the msg" and it will be ready for pick-up in 10 minutes.<li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li class="send_other_reply_button">yes</li>
+									<li class="send_other_reply_text">Yes.<li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li class="send_other_reply_button">no</li>
+									<li class="send_other_reply_text">No.<li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+            <footer id="other_replies_footer">
+                <span id="page_name">Send Reply</span>
+                <a id="footer_center_button" onclick="UICallbacks.other_replies_to_message_center();">Message Center</a>
+		        <img id="tmf_logo" src="images/logo.png"/>
+            </footer>
+		</section>	
+        <section id="blocked_phones">
+			<table>
+                <tbody id="blocked_phones_tbody"/>
+            </table>
+            <footer id="blocked_phones_footer">
+                <span id="page_name">Blocked Phones</span>
+                <a id="footer_center_button" onclick="UICallbacks.blocked_phones_to_message_center();">Message Center</a>
+		        <img id="tmf_logo" src="images/logo.png"/>
+            </footer>
+		</section>
+        <section id="messages_from_phone">
+            <center id="messages_from_phone_head">Messages from <span id="messages_from_phone_phone">a phone</span></center>
+			<table>
+                <tbody id="messages_from_phone_tbody"/>
+            </table>
+            <footer id="messages_from_phone_footer">
+                <span id="page_name">Messages From Phone</span>
+                <a id="footer_center_button" onclick="UICallbacks.messages_from_phone_to_message_center();">Message Center</a>
+		        <img id="tmf_logo" src="images/logo.png"/>
+            </footer>
+		</section>
+        <section id="recent_messages">
+			<table>
+                <tbody id="recent_messages_tbody"/>
+            </table>
+            <footer id="blocked_phones_footer">
+                <span id="page_name">Recent Messages</span>
+                <a id="footer_center_button" onclick="UICallbacks.recent_messages_to_message_center();">Message Center</a>
+		        <img id="tmf_logo" src="images/logo.png"/>
+            </footer>
+		</section>
+	</body>
+</html>

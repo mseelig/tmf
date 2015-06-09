@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HEAD>
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; charset=UTF-8">
+  <TITLE>TMF Console</TITLE>
+</HEAD>
+<BODY>
+
+  <table width="100%">
+    <tr>
+      <td><h1 style="font-size:20px">TMF Console</h1></td>
+      <td align=right><%= Time.now -%></td>
+    </tr>
+  </table>
+
+  <!-- <hr> -->
+  <!-- <% params.each do |c| %> -->
+  <!-- <%= c[0] -%>: <%= params[c[0]] -%><br> -->
+  <!-- <% end %> -->
+
+  <fieldset>
+    <legend><b>Server Status</b></legend>
+    <pre><%= `free` %></pre>
+    <pre><%= `ps -A uwww | grep -e'[Uu]SER' -e'[Rr]ails' -e'[rR]uby' -e'[Hh]ttp' -e'[Aa]pache' -e'[Aa]sseng' | head -16` %></pre>
+  </fieldset>
+  <fieldset>
+    <legend><b>Facility Status</b></legend>
+    <object data="client" width="100%">
+      <p>Warning: "../client/list" could not be embedded.</p>
+    </object>
+  </fieldset>
+  <form action="/cnsl/sendmsg" method="post">
+    <fieldset>
+      <legend><b>Send Text</b></legend>
+      <table>
+	<tr><td>From Facility Phone:
+	    <input name="restaurant_phone" size="13" type="text"
+		   value=<%= flash[:restaurant_phone] %>></td>
+	  <td width="5%"></td>
+	  <td>To Guest Phone:
+	    <input name="guest_phone" size="13" type="text"
+		   value=<%= flash[:guest_phone] %>></td></tr>
+      </table>
+      <table>
+	<tr><td>Message:</td>
+	  <td rowspan=2>
+	    <textarea name="text_message" cols="70" rows="2"><%= flash[:text_message] %></textarea></td></tr>
+	<tr><td><input name="commit" type="submit" value="Send"></td></tr>
+      </table>
+    </fieldset>
+  </form>
+  <form action="/cnsl/recvmsg" method="post">
+    <fieldset>
+      <legend><b>Simulate Sending Text from Guest
+	  (also sends automatic reply to guest)</b></legend>
+      <table>
+	<tr><td>From Guest Phone:
+	    <input name="From" size="13" type="text"
+		   value=<%= flash[:guest_phone] %>></td>
+	  <td width="5%"></td>
+	  <td>To Facility Phone:
+	    <input name="To" size="13" type="text"
+		   value=<%= flash[:restaurant_phone] %>></td></tr>
+      </table>
+      <table>
+	<tr><td>Message:</td>
+	  <td rowspan=2>
+	    <textarea name="Body" cols="70" rows="2"><%= flash[:text_message] || "t01" %></textarea>
+	</td></tr>
+	<tr><td><input type="submit" value="Receive"></td></tr>
+      </table>
+    </fieldset>
+  </form>
+
+  <% if @messages.blank? %>
+  <p>There are not any messages currently in the system.</p>
+  <% else %>
+  <table id="messages" cellpadding=2>
+    <tr>
+      <th align=left colspan=2>Messages</th>
+      <td nowrap colspan=4><%= will_paginate @messages %></td>
+      <td width="1%" rowspan=999></td>
+      <td nowrap><%= Time.now.utc.strftime("%Y-%m-%d %H:%M") -%></td>
+    </tr>
+    <tr>
+      <th><%= link_to "facility",
+	      CnslHelper.change_to('restaurant_code', @msortby, @msortord) -%></th>
+      <th><%= link_to "guest_phone",
+	      CnslHelper.change_to('guest_phone', @msortby, @msortord) -%></th>
+      <th><%= link_to "tbl",
+	      CnslHelper.change_to('table_code', @msortby, @msortord) -%></th>
+      <th><%= link_to "status",
+	      CnslHelper.change_to('status', @msortby, @msortord) -%></th>
+      <th><%= link_to "text",
+	      CnslHelper.change_to('text', @msortby, @msortord) -%></th>
+      <th><%= link_to "created",
+	      CnslHelper.change_to('created_at', @msortby, @msortord) -%></th>
+      <th><%= link_to "updated",
+	      CnslHelper.change_to('updated_at', @msortby, @msortord) -%></th>
+    </tr>
+    <% @messages.each do |c| %>
+    <tr valign=top>
+      <td nowrap><%= c.restaurant_code -%></td>
+      <td nowrap><%= c.guest_phone -%></td>
+      <td nowrap><%= c.table_code -%></td>
+      <td nowrap><%= c.status -%></td>
+      <td><%= c.text -%></td>
+      <td nowrap><%= c.created_at.to_s[0..-8] -%></td>
+      <td nowrap><%= c.updated_at.to_s[0..-8] -%></td>
+    </tr>
+    <% end %>
+    <tr>
+      <th align=left colspan=3>Messages</th>
+      <td nowrap colspan=3><%= will_paginate @messages %></td>
+      <td nowrap><%= Time.now.strftime("%Y-%m-%d %H:%M") -%></td>
+    </tr>
+  </table>
+  <% end %>
+  <!-- <p><%= link_to "Add new Message", {:action => 'new' }%></p> -->
+</BODY>

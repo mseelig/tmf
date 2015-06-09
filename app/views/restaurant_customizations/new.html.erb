@@ -1,0 +1,127 @@
+<h1>New restaurant_customization</h1>
+
+<% form_for(@restaurant_customization) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :restaurant_phone %><br />
+    <%= f.text_field :restaurant_phone %>
+  </p>
+  <p>
+    <%= f.label :close_label %><br />
+    <%= f.text_field :close_label %>
+  </p>
+  <p>
+    <%= f.label :table_label %><br />
+    <%= f.text_field :table_label %>
+  </p>
+  <p>
+    <%= f.label :message_label %><br />
+    <%= f.text_field :message_label %>
+  </p>
+  <p>
+    <%= f.label :phone_label %><br />
+    <%= f.text_field :phone_label %>
+  </p>
+  <p>
+    <%= f.label :reply_label %><br />
+    <%= f.text_field :reply_label %>
+  </p>
+  <p>
+    <%= f.label :other_replies_label %><br />
+    <%= f.text_field :other_replies_label %>
+  </p>
+  <p>
+    <%= f.label :other_replies_html %><br />
+    <%= f.text_area :other_replies_html %>
+  </p>
+  <p>
+    <%= f.label :time_label %><br />
+    <%= f.text_field :time_label %>
+  </p>
+  <p>
+    <%= f.label :status_label %><br />
+    <%= f.text_field :status_label %>
+  </p>
+  <p>
+    <%= f.label :unblock_label %><br />
+    <%= f.text_field :unblock_label %>
+  </p>
+  <p>
+    <%= f.label :time_blocked_label %><br />
+    <%= f.text_field :time_blocked_label %>
+  </p>
+  <p>
+    <%= f.label :how_blocked_label %><br />
+    <%= f.text_field :how_blocked_label %>
+  </p>
+  <p>
+    <%= f.label :message_center_label %><br />
+    <%= f.text_field :message_center_label %>
+  </p>
+  <p>
+    <%= f.label :system_menu_label %><br />
+    <%= f.text_field :system_menu_label %>
+  </p>
+  <p>
+    <%= f.label :recent_messages_label %><br />
+    <%= f.text_field :recent_messages_label %>
+  </p>
+  <p>
+    <%= f.label :blocked_phones_label %><br />
+    <%= f.text_field :blocked_phones_label %>
+  </p>
+  <p>
+    <%= f.label :send_promo_label %><br />
+    <%= f.text_field :send_promo_label %>
+  </p>
+  <p>
+    <%= f.label :send_reply_label %><br />
+    <%= f.text_field :send_reply_label %>
+  </p>
+  <p>
+    <%= f.label :system_menu_text1 %><br />
+    <%= f.text_field :system_menu_text1 %>
+  </p>
+  <p>
+    <%= f.label :system_menu_text2 %><br />
+    <%= f.text_field :system_menu_text2 %>
+  </p>
+  <p>
+    <%= f.label :be_there_label %><br />
+    <%= f.text_field :be_there_label %>
+  </p>
+  <p>
+    <%= f.label :other_label %><br />
+    <%= f.text_field :other_label %>
+  </p>
+  <p>
+    <%= f.label :days_label %><br />
+    <%= f.text_field :days_label %>
+  </p>
+  <p>
+    <%= f.label :day_label %><br />
+    <%= f.text_field :day_label %>
+  </p>
+  <p>
+    <%= f.label :hours_label %><br />
+    <%= f.text_field :hours_label %>
+  </p>
+  <p>
+    <%= f.label :hour_label %><br />
+    <%= f.text_field :hour_label %>
+  </p>
+  <p>
+    <%= f.label :min_label %><br />
+    <%= f.text_field :min_label %>
+  </p>
+  <p>
+    <%= f.label :network_down_label %><br />
+    <%= f.text_field :network_down_label %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', restaurant_customizations_path %>

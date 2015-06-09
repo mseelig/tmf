@@ -1,0 +1,23 @@
+<p>
+  <b>Restaurant phone:</b>
+  <%=h @tablemap.restaurant_phone %>
+</p>
+
+<p>
+  <b>Table code:</b>
+  <%=h @tablemap.table_code %>
+</p>
+
+<p>
+  <b>Restaurant code:</b>
+  <%=h @tablemap.restaurant_code %>
+</p>
+
+<p>
+  <b>Seats:</b>
+  <%=h @tablemap.seats %>
+</p>
+
+
+<%= link_to 'Edit', edit_tablemap_path(@tablemap) %> |
+<%= link_to 'Back', tablemaps_path %>

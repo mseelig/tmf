@@ -1,0 +1,27 @@
+<h1>New tablemap</h1>
+
+<% form_for(@tablemap) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :restaurant_phone %><br />
+    <%= f.text_field :restaurant_phone %>
+  </p>
+  <p>
+    <%= f.label :table_code %><br />
+    <%= f.text_field :table_code %>
+  </p>
+  <p>
+    <%= f.label :restaurant_code %><br />
+    <%= f.text_field :restaurant_code %>
+  </p>
+  <p>
+    <%= f.label :seats %><br />
+    <%= f.text_field :seats %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', tablemaps_path %>

@@ -1,0 +1,673 @@
+@charset "UTF-8";
+
+/* CSS HTML5 RESET */
+body,html{text-rendering:optimizeLegibility;
+          margin:0;
+          padding:0;
+          font-size:100.01%;
+          border:0;
+          outline:0;
+          vertical-align:baseline;
+          line-height:1;
+          overflow:hidden;}
+
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{
+	display:block;
+}
+nav ul{list-style:none;}
+
+/* Standard Body styles, ie. sans-serif font */
+
+body {
+	background-color:#000;
+	color:#fff;
+	font-family:Myriad, 'Myriad Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	/*background-image:url(../images/logo.png);
+	background-position:99% 100%;
+	background-repeat:no-repeat;*/
+	/*cursor:none !important;*//* For Production - remove cursors */
+	width:100%;
+ 	height:100%;
+}
+
+/**:hover, *:active, *:focus {
+	cursor:none !important;
+}*/
+
+/* HACK! Disable user doing Text Selection.  colon means "[psudo class, double colon means browser-specific psudo class. */
+
+::selection, ::-moz-selection {
+    background-color: transparent;
+}
+
+* {
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	user-select:none; 
+	-khtml-user-select:none;
+	-o-user-select:none;
+}
+
+/* Get rid of link default underlines, borders, etc */
+a {text-decoration:none;}
+
+a:hover, a:active, a:focus {
+	outline:none;
+	border:none;
+}
+
+a:active {
+	text-shadow: #aaa .05em .05em .05em;
+	color:#FFFF00!important;
+}
+
+/* Page Specific Styles */	
+	/* System Menu sub-app, initially hidden */
+#main {
+    display:none;
+    position: absolute;
+    top: 50px;
+    left: 60px;
+    height: 80%;
+    width: 85%;
+    border: 1px solid white;
+    z-index: 10;
+    background-color: #333;
+ /* background-image:url(../images/starbucks.gif);
+	background-position:50% 0; /* Center image */
+	background-repeat:no-repeat;
+ */
+}
+#restaurant_image {
+    position: absolute;
+    top: 10px;
+    left: 40%;
+}
+
+/* Top-right hand corner Quit button */
+#quit { border:.1em solid #fff;
+	background-color:#ff0000;
+	padding:.5em 1em;
+	width:2em;
+	position:absolute;
+	top:0;
+	right:0;
+	display:block;
+	color:#fff;
+}
+/* Main Page Navigation */
+
+#main-nav {
+	width:90%;
+	padding:0 5% 0 0; /* Make sure padding + width adds to 100% */
+	text-align:center;
+	overflow:hidden;
+}
+
+#main-nav {
+	padding-top:190px; /* Make sure that the image fits within space, ~200px height or less */
+}
+
+#main-nav > ul {
+	width:100%;
+	font-size:2.5em; /* Controls size of menu items */
+}
+
+#main-nav > ul > li {
+	width:20%;	
+	display:inline-block;
+	display:-moz-inline-block; /* this is necessary for Firefox 2.x */
+}
+
+#main-nav > ul > li > a {
+	color:#fff;
+	float:left; /* This is necessary for a WebKit bug with inline-block elements */
+	background-color:#000;
+	display:block;
+	width:94%;
+	padding:.33em 1%;
+	height:2em;
+	margin:.1em;
+	overflow:hidden;
+	border:.1em solid #fff;
+	border-radius:.1em;
+	-moz-border-radius:.1em;
+	-webkit-border-radius:.1em;
+}
+
+#main-nav > ul > li > a:hover {
+	background-color:#fff;
+	color:#000;
+}
+
+/* Page specific styles cont. */
+
+/*#logo {
+	background-image:url(../images/starbucks.gif);
+	background-position:50% 0; /* Center image */
+	background-repeat:no-repeat;
+	position:absolute;
+	top:0;
+	width:100%;
+	height:200px; /* Set to height of image */
+} */
+
+/* message_center*/
+
+#message_center {
+	height:100%;
+	width:100%;
+	padding:0 0%;
+	overflow:auto;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+
+}
+
+#message_center ul {
+	padding:0; /* Remove default padding */
+	margin:0;
+}
+
+#message_center > ul li {
+	list-style:none; /* Remove dots on list items */
+}
+
+#message_center > ul > li {
+	clear:both;
+}
+
+#message_center > ul > li > ul {
+	width:100%;
+	margin-bottom:.2em;
+    height:75px;
+	/* CSS Gradient */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bcbcbc', endColorstr='#111122'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#bcbcbc), to(#111122)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #bcbcbc,  #111122); /* for firefox 3.6+ */
+}
+
+#message_center > ul > li > ul > li {
+	float:left;
+	display:block;
+	width:9%;
+	padding:0 0 0 .76%;
+	font-size:4.0em;
+	overflow:hidden;
+	min-height:100%;
+	outline:3px solid #000;
+	margin-top:3px;
+}
+
+#message_center > ul > li > ul > li > a {
+	color:#fff;
+	display:block;
+	width:100%;
+	height:100%;
+}
+
+/* SENT stamp in Message Center */
+#message_center .sent {
+    display:none;
+	/*font-family:Impact;*/
+	font-size:1.5em;
+	color:#ff0000;
+
+	transform:rotate(-30deg);
+	-moz-transform:rotate(-30deg);
+	-webkit-transform:rotate(-30deg);
+
+	position:relative;
+	float:left;
+	height:0;
+	margin-left:-.33em;
+	margin-top:-1.5em;
+	z-index:2;
+}
+
+/* Specific Menu Items note 75px is also min hieght of the .message elt.*/
+
+#message_center > ul > li > ul > li.close,
+#message_center > ul > li > ul > li.response,
+#message_center > ul > li > ul > li.other_responses,
+#message_center > ul > li > ul > li.phone
+{ height:75px;
+}
+#message_center > ul > li > ul > li.close > a,
+#message_center > ul > li > ul > li.response > a,
+#message_center > ul > li > ul > li.other_responses > a,
+#message_center > ul > li > ul > li.phone > a
+{
+	
+	/* CSS Gradient */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#111122', endColorstr='#bcbcbc'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#111122), to(#bcbcbc)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #111122,  #bcbcbc); /* for firefox 3.6+ */
+
+	display:block;
+	width:100%;
+	margin:4px 0;
+	max-width:1.33em;
+	max-height:1em;
+	height:80%;
+	padding-top:10%;
+	text-align:center;
+	vertical-align:middle;
+
+	/* CSS Rounded Corners */
+	border-radius:1em;
+	-moz-border-radius:1em;
+	-webkit-border-radius:1em;
+
+	font-weight:700;
+}
+
+#message_center  li.close > a { /* > ul > li > ul > */
+	margin-left:-2px;
+    color:red;
+    max-height:1.1em;
+	height:85%;
+}
+
+#message_center  li.table {
+	/*letter-spacing:-.1em;*/
+	text-align:center;
+	padding:0 .75% 0 0;
+   
+}
+#message_center  li.table > a { 
+    padding:0;
+    margin:0;
+    font-size:90%;
+    color:#E0F;
+}
+
+#message_center .age {
+    position:relative;
+    top:-5px;
+    padding:0;
+    margin:0;
+    font-size:20px;
+    color:#FF0;
+}
+
+#message_center > ul > li > ul > li.message {
+	width:50.4%;
+	font-size:2.75em;
+    min-height:75px;
+    /* CSS Gradient */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bcbcbc', endColorstr='#111122'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#bcbcbc), to(#111122)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #bcbcbc,  #111122); /* for firefox 3.6+ */
+
+}
+/* */
+
+#message_center  li.response > a {
+    margin-left:2px;
+    color:#8F8;
+}
+#message_center  li.other_responses > a {
+	margin-left:2px;
+    color:#EEA75F /*brown*/
+}
+
+
+#message_center > ul > li > ul > li.phone{
+    font-size:1.25em;
+}
+
+#message_center > ul > li > ul > li.phone > a{
+    width:100%;
+	min-width:1em;
+	max-width:2.66em;
+    height:100%;
+	min-height:1em;
+	max-height:3.66em;
+	padding:10% 16% 0% 16%;
+	
+	/* CSS Rounded Corners */
+	border-radius:2em;
+	-moz-border-radius:1.5em;
+	-webkit-border-radius:2em;
+}
+#message_center > ul > li > ul > li.other_responses,
+#message_center > ul > li > ul > li.response {
+	font-size:1.8em;
+}
+
+#message_center > ul > li > ul > li.response > a,
+#message_center > ul > li > ul > li.other_responses > a {
+	width:100%;
+	min-width:1em;
+	max-width:2.66em;
+	padding:10% 6% 0 6%;
+	
+	/* CSS Rounded Corners */
+	border-radius:2em;
+	-moz-border-radius:1.5em;
+	-webkit-border-radius:2em;
+}
+
+#message_center > ul > li > ul > li.response > a {
+	min-height:2.5em;
+}
+
+#message_center > ul > li > ul > li.other_responses > a {
+	min-height:2em;
+	padding-top:25%;
+}
+
+/* First row in Message Center, ie the headers of "close, "table" etc. */
+#message_center > ul > li:first-child,
+#message_center > ul > li:first-child > ul,
+#message_center > ul > li:first-child > ul > li,
+#message_center > ul > li:first-child > ul > li.message {
+    height:15px;
+    min-height:15px
+}
+#message_center > ul > li:first-child > ul  {
+	width:100%;
+	display:block;
+	margin:.33em 0;
+	background:none;
+	
+}
+
+#message_center > ul > li:first-child > ul > li {
+	font-size:1em;
+	width:10%;
+	border:none;
+	text-align:left;
+	padding:0;
+	font-weight:400; /* Reset font weight and size for close button */
+	display:list-item;
+}
+
+#message_center > ul > li:first-child > ul > li.message {
+	width:50%;
+    /* CSS Gradient */
+	filter: none;
+    background: none;
+}
+
+
+#new_message_alert {
+	position: fixed;
+    top:70%;
+	/* bottom:0; */
+	left: 0%;
+	width: 100%;
+	height: 30%;
+	z-index:1001;
+	-moz-opacity: 0.8;
+	opacity:.80;
+	filter: alpha(opacity=80);
+	
+	color: red;
+	background-color: white;
+	display:none;
+	/*padding-top:15%;
+	padding-bottom:35%; */
+	font-size:5em;
+	font-weight:700;
+	/*text-align:bottom;
+	vertical-align:bottom; */
+	
+}
+
+#other_replies {
+	width:100%:
+	height:100%;
+	display:none;
+}
+
+#other_replies_content {
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%
+	/* padding: 1em; */
+	background-color:#000;
+	z-index:1002;
+	overflow: auto;
+	color:#fff;
+}
+
+
+
+/* CSS other_replies Rows & Columns */
+
+#other_replies_content ul {
+	list-style:none;
+	padding:0;
+}
+
+#other_replies_content > ul > li {
+	width:45%;
+	margin:0 2.5%;
+	height:100%;
+	overflow:hidden;
+	float:left;
+	font-size:1.33em;
+}
+
+#other_replies_content ul, #other_replies_content li {
+	width:100%;
+}
+
+/*the pair of message label and message content*/
+#other_replies_content > ul > li > ul > li {
+	margin:40px 20px 40px 0px;
+	clear:both;
+	min-height:3em;
+	
+}
+#other_replies_content  .send_other_reply_button{
+	text-align:center;
+	color:white;
+	background-color: #CC6600;
+	border-radius: 10px;
+    margin-right: 10px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 10px;	
+}
+/*purple #808;   tan #EEA75F;*/
+
+
+#other_replies_content  .send_other_reply_text{
+	background-color:black
+    padding:1em;
+}
+
+#other_replies_content > ul > li > ul > li:first-child {
+	padding-top:0;
+}
+
+#other_replies_content > ul > li > ul > li > ul > li:first-child  {
+	width:25%;
+	overflow:hidden;
+	float:left;
+	min-height:3em;
+	font-weight:700;
+	text-align:center;
+	line-height:1.5;
+}
+
+#blocked_phones {
+    display:none;
+	height:100%;
+	width:100%;
+	padding:0 0%;
+	overflow:auto;
+}
+
+.blocked_phones_header_items {
+    font-size:1.5em;
+    color:#0c0;
+    padding:.75em;
+}
+
+.blocked_phones_items {
+    font-size:1.5em;
+    color:#8f8;
+    margin:20px 20px 20px 20px;
+    padding:.75em;	
+}
+
+#blocked_phones .unblock_phone_button {
+	text-align:center;
+	padding:.75em .75em .75em .75em;
+	border:.1em solid #fff;
+	color:black;
+	background-color:#8f8;
+	font-size:1.5em;
+	margin:20px 20px 20px 20px !important;
+}
+
+#messages_from_table {
+    display:none;
+	height:100%;
+	width:100%;
+	padding:0 0%;
+	overflow:auto;
+}
+
+#messages_from_table_head{
+    font-size:3em;
+    color:#ddd;
+    padding:10px;
+}
+
+.messages_from_table_header_items {
+    font-size:1.5em;
+    color:#aaf;
+    padding:0 .5em 0 .5em;
+}
+
+.messages_from_table_items {
+    font-size:1.5em;
+    color:#D7F;
+    padding:.5em .5em 0 .5em;
+}
+
+
+#messages_from_phone {
+    display:none;
+	height:100%;
+	width:100%;
+	padding:0 0%;
+	overflow:auto;
+}
+
+#messages_from_phone_head{
+    font-size:3em;
+    color:#ddd;
+    padding:10px;
+}
+
+.messages_from_phone_header_items {
+    font-size:1.5em;
+    color:#AAF;
+    padding:0 .5em 0 .5em;
+}
+
+.messages_from_phone_items {
+    font-size:1.5em;
+    color:#FFF;
+    padding:.5em .5em 0 .5em;
+}
+
+#recent_messages {
+    display:none;
+	height:100%;
+	width:100%;
+	padding:0 0%;
+	overflow:auto;
+}
+
+.recent_message_header_items {
+    font-size:1.5em;
+    color:#a4f;
+    padding:0 .5em 0 .5em;
+}
+
+.recent_messages_items {
+    font-size:1.5em;
+    color:#d6f;
+    padding:.5em .5em 0 .5em;
+}
+
+/* FOOTERS */
+
+footer {
+	position:absolute; 
+	width:100%;
+	height:12%;
+    bottom:0;
+    padding-top:2%;
+	margin:0;
+    text-align:center;
+	font-size:1em;
+	line-height:1;
+	overflow:hidden;
+    /*background:url(../images/logo.png) 99% 70% no-repeat;*/
+}
+
+/* Bottom-left hand corner page name, ie. Message Center */
+#page_name {
+    position:absolute;
+    bottom:10px;
+    left:20px;
+	color:#88F;
+	font-size:2em;
+}
+
+#support { text-indent:-25%;}
+
+#footer_center_button {
+    position:absolute;
+    bottom:10px;
+    left:40%;
+	text-align:center;
+	padding:.75em .5em .75em .5em;
+	border:.1em solid #fff;
+	color:yellow;
+	background-color:#22F;
+	font-size:1.5em;
+	margin:0 0 0 0;
+}
+
+#support {
+   position:absolute;
+   bottom:10px;
+   left:35%;
+   font-size:1.2em;
+}
+
+#tmf_logo {
+    position:absolute;
+    right:10px;
+    bottom:10px;
+    margin:0 30px 0 0;
+}
+
+#network_down {
+    display:none;
+    position:absolute;
+    left:10px;
+    bottom:9px;
+    font-size:3em;
+    color:red;
+    background-color:black;
+    border:.2em solid #F00;
+    padding:15px;
+    width:250px
+}
+
+
+
+

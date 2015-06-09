@@ -1,0 +1,13 @@
+<p>
+  <b>Guest phone:</b>
+  <%=h @phonemap.guest_phone %>
+</p>
+
+<p>
+  <b>Restaurant code:</b>
+  <%=h @phonemap.restaurant_code %>
+</p>
+
+
+<%= link_to 'Edit', edit_phonemap_path(@phonemap) %> |
+<%= link_to 'Back', phonemaps_path %>

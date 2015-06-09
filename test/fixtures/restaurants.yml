@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  restaurant_phone: MyString
+  restaurant_name: MyString
+  time_zone: MyString
+  username: MyString
+  password: MyString
+
+two:
+  restaurant_phone: MyString
+  restaurant_name: MyString
+  time_zone: MyString
+  username: MyString
+  password: MyString
